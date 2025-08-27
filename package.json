@@ -11,6 +11,15 @@
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^6.14.0",
+    "express": "^5.1.0",
     "prisma": "^6.14.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abdallahmadian/enozom-task.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Abdallahmadian/enozom-task/issues"
+  },
+  "homepage": "https://github.com/Abdallahmadian/enozom-task#readme"
 }
