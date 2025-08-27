@@ -1,0 +1,35 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model city {
+  city_id   Int     @id @default(autoincrement())
+  city_name String? @db.VarChar(100)
+  trip      trip[]
+}
+
+model train {
+  train_id   Int     @id @default(autoincrement())
+  train_name String? @db.VarChar(50)
+  capacity   Int?
+  trip       trip[]
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model trip {
+  train_id   Int
+  city_id    Int
+  stop_order Int?
+
+  train      train @relation(fields: [train_id], references: [train_id], onDelete: NoAction, onUpdate: NoAction, map: "trip_ibfk_1")
+  city       city  @relation(fields: [city_id], references: [city_id], onDelete: NoAction, onUpdate: NoAction, map: "trip_ibfk_2")
+
+  @@id([train_id, city_id])
+  @@index([city_id], map: "city_id")
+  @@index([train_id], map: "train_id")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
