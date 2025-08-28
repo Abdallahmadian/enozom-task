@@ -1,0 +1,12 @@
+model trip {
+  train_id   Int
+  city_id    Int
+  stop_order Int?
+
+  train      train @relation(fields: [train_id], references: [train_id], onDelete: NoAction, onUpdate: NoAction, map: "trip_ibfk_1")
+  city       city  @relation(fields: [city_id], references: [city_id], onDelete: NoAction, onUpdate: NoAction, map: "trip_ibfk_2")
+
+  @@id([train_id, city_id])
+  @@index([city_id], map: "city_id")
+  @@index([train_id], map: "train_id")
+}

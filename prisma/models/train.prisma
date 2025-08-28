@@ -1,0 +1,6 @@
+model train {
+  train_id   Int     @id @default(autoincrement())
+  train_name String? @db.VarChar(50)
+  capacity   Int?
+  trip       trip[]
+}

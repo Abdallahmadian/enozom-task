@@ -1,0 +1,5 @@
+model city {
+  city_id   Int     @id @default(autoincrement())
+  city_name String? @db.VarChar(100)
+  trip      trip[]
+}
