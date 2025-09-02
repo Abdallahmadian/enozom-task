@@ -5,6 +5,4 @@ const router = express.Router();
 
 router.get('/', getCities);
 
-// Add more city routes as needed
-
 export default router;

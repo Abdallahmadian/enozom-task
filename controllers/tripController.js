@@ -27,6 +27,7 @@ export const getTripsFromAlexToCairo = async (req, res) => {
         train: true,
         from_city: true,
         to_city: true,
+        // author: true, // Uncomment if you have an author relation
       },
     });
 

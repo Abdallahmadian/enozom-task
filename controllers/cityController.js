@@ -6,5 +6,3 @@ export const getCities = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-
-// Add more city methods as needed (e.g., createCity, updateCity, deleteCity)

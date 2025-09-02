@@ -19,5 +19,3 @@ export const deleteTrain = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-
-// Add more train methods as needed (e.g., createTrain, updateTrain)
