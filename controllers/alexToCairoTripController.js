@@ -1,15 +1,6 @@
 import prisma from '../prismaClient.js';
 
-export const getTrips = async (req, res) => {
-  try {
-    const trips = await prisma.trip.findMany();
-    res.json(trips);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
-
-export const getTripsFromAlexToCairo = async (req, res) => {
+export const getAlexToCairoTrips = async (req, res) => {
   try {
     const alex = await prisma.city.findUnique({ where: { name: 'Alexandria' } });
     const cairo = await prisma.city.findUnique({ where: { name: 'Cairo' } });
@@ -27,6 +18,7 @@ export const getTripsFromAlexToCairo = async (req, res) => {
         train: true,
         from_city: true,
         to_city: true,
+        author: true 
       },
     });
 
@@ -35,6 +27,3 @@ export const getTripsFromAlexToCairo = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-
-// Add more trip methods as needed (e.g., createTrip, updateTrip, deleteTrip)
-// Add more trip methods as needed (e.g., createTrip, updateTrip, deleteTrip)
