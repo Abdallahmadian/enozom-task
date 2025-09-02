@@ -18,7 +18,7 @@ export const getAlexToCairoTrips = async (req, res) => {
         train: true,
         from_city: true,
         to_city: true,
-        author: true // Assumes your trip model has a relation named 'author'
+        author: true 
       },
     });
 
